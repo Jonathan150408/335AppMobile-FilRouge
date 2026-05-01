@@ -6,7 +6,7 @@
 
     <StackLayout Padding="20" Spacing="15">
 
-        <Label Text="Nom du deck"
+        <Label Text="Question de la carte"
                FontSize="16"
                FontAttributes="Bold" />
 
@@ -14,12 +14,15 @@
         <Entry x:Name="QuestionEntry"
                Placeholder="Question"
                FontSize="18" />
-        
+
+        <Label Text="Réponse de la carte"
+               FontSize="16"
+               FontAttributes="Bold" />
+
         <!-- Réponse -->
         <Entry x:Name="AnswerEntry"
                Placeholder="Réponse"
                FontSize="18" />
-
 
         <Button Text="Sauvegarder"
                Clicked="OnSaveClicked"

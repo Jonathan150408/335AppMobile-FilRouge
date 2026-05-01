@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1ABgiQ2XZM4=",
+  "dgSpecHash": "MNxawi7qI0E=",
   "success": true,
-  "projectFilePath": "D:\\2025-2026\\trimestre_4\\335-ApplicationMobile\\AppFilRouge\\FlashQuizz\\FlashQuizz.csproj",
+  "projectFilePath": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\FlashQuizz.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pe40boh\\.nuget\\packages\\googlegson\\2.11.0.5\\googlegson.2.11.0.5.nupkg.sha512",
     "C:\\Users\\pe40boh\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.0\\microsoft.extensions.configuration.9.0.0.nupkg.sha512",

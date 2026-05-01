@@ -26229,11 +26229,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\2025-2026\\trimestre_4\\335-ApplicationMobile\\AppFilRouge\\FlashQuizz\\FlashQuizz.csproj",
+      "projectUniqueName": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\FlashQuizz.csproj",
       "projectName": "FlashQuizz",
-      "projectPath": "D:\\2025-2026\\trimestre_4\\335-ApplicationMobile\\AppFilRouge\\FlashQuizz\\FlashQuizz.csproj",
+      "projectPath": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\FlashQuizz.csproj",
       "packagesPath": "C:\\Users\\pe40boh\\.nuget\\packages\\",
-      "outputPath": "D:\\2025-2026\\trimestre_4\\335-ApplicationMobile\\AppFilRouge\\FlashQuizz\\obj\\",
+      "outputPath": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

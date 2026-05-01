@@ -59,11 +59,17 @@ namespace FlashQuizz
         /// <param name="e"></param>
         private async void OnAddCardClicked(object sender, EventArgs e)
         {
-            string? question = NewCardEntry.Text?.Trim();
+            string? question = NewCardQuestionEntry.Text?.Trim();
+            string? answer = NewCardAnswerEntry.Text?.Trim();
 
             if (string.IsNullOrEmpty(question))
             {
-                await DisplayAlert("Erreur", "Veuillez entrer un nom", "OK");
+                await DisplayAlert("Erreur", "Veuillez entrer une question", "OK");
+                return;
+            }
+            else if (string.IsNullOrEmpty(answer))
+            {
+                await DisplayAlert("Erreur", "Veuillez entrer une réponse", "OK");
                 return;
             }
 
@@ -71,13 +77,14 @@ namespace FlashQuizz
             {
                 Id = _nextId++,
                 Question = question,
-                //Answer = answer
+                Answer = answer
             };
 
             _cards.Add(newCard);  // ← La vue se met à jour automatiquement !
             await _dataService.SaveCardsAsync(_cards.ToList());
 
-            NewCardEntry.Text = string.Empty;
+            NewCardQuestionEntry.Text = string.Empty;
+            NewCardAnswerEntry.Text = string.Empty;
             UpdateInfo($"Ajouté: {question}");
         }
         /// <summary>

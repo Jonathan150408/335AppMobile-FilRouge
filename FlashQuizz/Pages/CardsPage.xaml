@@ -11,9 +11,16 @@
             <HorizontalStackLayout Grid.Row="0"
                                   Spacing="10"
                                   Margin="0,0,0,10">
-                <Entry x:Name="NewCardEntry"
-                       Placeholder="Nom de la nouvelle carte"
-                       HorizontalOptions="FillAndExpand" />
+                <VerticalStackLayout>
+                    <Entry x:Name="NewCardQuestionEntry"
+                           Placeholder="Question de la nouvelle carte"
+                           HorizontalOptions="FillAndExpand" />
+
+                    <Entry x:Name="NewCardAnswerEntry"
+                           Placeholder="Réponse de la nouvelle carte"
+                           HorizontalOptions="FillAndExpand" />
+                </VerticalStackLayout>
+
                 <Button Text="Ajouter"
                         Clicked="OnAddCardClicked"
                         BackgroundColor="#2196F3"
