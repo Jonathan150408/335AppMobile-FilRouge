@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FlashQuizz</name>
+    </assembly>
+    <members>
+        <member name="P:FlashQuizz.Models.Deck.Id">
+            <summary>
+            Positive unique integer that references an instance of a Deck
+            </summary>
+        </member>
+        <member name="P:FlashQuizz.Models.Deck.Name">
+            <summary>
+            A string that defines the Deck's name
+            </summary>
+        </member>
+        <member name="P:FlashQuizz.Models.Deck.Description">
+            <summary>
+            A facultative string that describe the Deck
+            </summary>
+        </member>
+        <member name="M:FlashQuizz.CardsPage.UpdateInfo(System.String)">
+            <summary>
+            met les infos à jour
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:FlashQuizz.CardsPage.OnAddCardClicked(System.Object,System.EventArgs)">
+            <summary>
+            Permet de créer/ajouter de nouveaux Cards
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlashQuizz.CardsPage.OnEditCardClicked(System.Object,System.EventArgs)">
+            <summary>
+            Permet de mettre un Card à jour (uniquement le nom puisque seul le nom est éditable)
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlashQuizz.CardsPage.OnDeleteCardClicked(System.Object,System.EventArgs)">
+            <summary>
+            Permet de Delete un Card (on sait lequel en se basant sur quel bouton à été cliqué)
+            </summary>
+            <param name="sender">Le bouton déterminant quel Card sera supprimé</param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlashQuizz.CardsPage.sortCards">
+            améliorations
+        </member>
+        <member name="M:FlashQuizz.DecksPage.UpdateInfo(System.String)">
+            <summary>
+            met les infos à jour
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:FlashQuizz.DecksPage.OnAddDeckClicked(System.Object,System.EventArgs)">
+            <summary>
+            Permet de créer/ajouter de nouveaux decks
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlashQuizz.DecksPage.OnEditDeckClicked(System.Object,System.EventArgs)">
+            <summary>
+            Permet de mettre un deck à jour (uniquement le nom puisque seul le nom est éditable)
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlashQuizz.DecksPage.OnDeleteDeckClicked(System.Object,System.EventArgs)">
+            <summary>
+            Permet de Delete un deck (on sait lequel en se basant sur quel bouton à été cliqué)
+            </summary>
+            <param name="sender">Le bouton déterminant quel deck sera supprimé</param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FlashQuizz.DecksPage.sortDecks">
+            améliorations
+        </member>
+        <member name="T:FlashQuizz.Services.CardService">
+            <summary>
+            Une classe qui permet d'accèder aux données de la base de données (ici, des fichiers JSON)
+            </summary>
+        </member>
+        <member name="F:FlashQuizz.Services.CardService._filePath">
+            <summary>
+            Le chemin de fichiers par lequel on peut retrouver le Card
+            </summary>
+        </member>
+        <member name="M:FlashQuizz.Services.CardService.LoadCardsAsync">
+            <summary>
+            L'équivalent d'un GET, ceci est l'opération READ et permet d'obtenir les données
+            </summary>
+            <returns>Les données du Card</returns>
+        </member>
+        <member name="M:FlashQuizz.Services.CardService.SaveCardsAsync(System.Collections.Generic.List{FlashQuizz.Models.Card})">
+            <summary>
+            L'équivalent de PUT, ceci est l'opération UPDATE et permet de sauvegarder (en écransant) toutes les données d'un Card
+            </summary>
+            <param name="Cards"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FlashQuizz.Services.CardService.GetFilePath">
+            <summary>
+            Permet de recevoir le chemin actuel
+            </summary>
+            <returns>Une string contenant le chemin de fichiers</returns>
+        </member>
+        <member name="T:FlashQuizz.Services.DeckService">
+            <summary>
+            Une classe qui permet d'accèder aux données de la base de données (ici, des fichiers JSON)
+            </summary>
+        </member>
+        <member name="F:FlashQuizz.Services.DeckService._filePath">
+            <summary>
+            Le chemin de fichiers par lequel on peut retrouver le deck
+            </summary>
+        </member>
+        <member name="M:FlashQuizz.Services.DeckService.LoadDecksAsync">
+            <summary>
+            L'équivalent d'un GET, ceci est l'opération READ et permet d'obtenir les données
+            </summary>
+            <returns>Les données du deck</returns>
+        </member>
+        <member name="M:FlashQuizz.Services.DeckService.SaveDecksAsync(System.Collections.Generic.List{FlashQuizz.Models.Deck})">
+            <summary>
+            L'équivalent de PUT, ceci est l'opération UPDATE et permet de sauvegarder (en écransant) toutes les données d'un deck
+            </summary>
+            <param name="decks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FlashQuizz.Services.DeckService.GetFilePath">
+            <summary>
+            Permet de recevoir le chemin actuel
+            </summary>
+            <returns>Une string contenant le chemin de fichiers</returns>
+        </member>
+        <member name="T:FlashQuizz.Resource">
+            <summary>
+            Android Resource Designer class.
+            Exposes the Android Resource designer assembly into the project Namespace.
+            </summary>
+        </member>
+    </members>
+</doc>

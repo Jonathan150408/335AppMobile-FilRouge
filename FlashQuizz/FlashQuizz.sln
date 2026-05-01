@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashQuizz", "FlashQuizz.csproj", "{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CA49BA4-14BC-49D3-A4A6-5135BADD6A28}
+	EndGlobalSection
+EndGlobal

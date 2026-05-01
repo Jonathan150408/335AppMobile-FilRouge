@@ -1,0 +1,79 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FlashQuizz
+build_property.ProjectDir = D:\2025-2026\trimestre_4\335-ApplicationMobile\AppFilRouge\FlashQuizz\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/Pages/CardsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.CardsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\CardsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\CardsPage.xaml
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/Pages/DecksPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.DecksPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\DecksPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\DecksPage.xaml
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/Pages/EditCardPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.EditCardPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\EditCardPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\EditCardPage.xaml
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/Pages/EditDeckPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.EditDeckPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\EditDeckPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\EditDeckPage.xaml
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/Pages/InfosPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.InfosPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\InfosPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\InfosPage.xaml
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[D:/2025-2026/trimestre_4/335-ApplicationMobile/AppFilRouge/FlashQuizz/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
