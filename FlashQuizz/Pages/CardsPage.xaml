@@ -27,7 +27,7 @@
                         TextColor="White" />
             </HorizontalStackLayout>
 
-            <SearchBar Placeholder="Rechercher un deck..."
+            <SearchBar Placeholder="Rechercher une carte..."
                TextChanged="OnSearchTextChanged"
                Margin="0,0,0,10" />
 
@@ -49,9 +49,12 @@
                             <!-- Card info -->
                             <StackLayout Grid.Column="0"
                                         VerticalOptions="Center">
-                                <Label Text="{Binding Question}"
-                                       FontSize="18"
-                                       FontAttributes="Bold" />
+                                <Button Text="{Binding Question}"
+                                        FontSize="18"
+                                        FontAttributes="Bold"
+                                        BackgroundColor="Transparent"
+                                        TextColor="Black"
+                                        Clicked="OnCardClicked"/>
                             </StackLayout>
 
                             <!-- Edit button -->
@@ -81,7 +84,7 @@
                     <Label Text="📚"
                            FontSize="60"
                            HorizontalOptions="Center" />
-                    <Label Text="Aucun deck"
+                    <Label Text="Aucune carte"
                            FontSize="18"
                            TextColor="Gray"
                            HorizontalOptions="Center" />

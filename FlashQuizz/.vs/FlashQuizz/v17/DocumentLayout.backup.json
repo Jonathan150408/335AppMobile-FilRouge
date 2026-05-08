@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|c:\\users\\pe40boh\\documents\\github\\335appmobile-filrouge\\flashquizz\\pages\\editcardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|solutionrelative:pages\\editcardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|c:\\users\\pe40boh\\documents\\github\\335appmobile-filrouge\\flashquizz\\pages\\editcardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|solutionrelative:pages\\editcardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|c:\\users\\pe40boh\\documents\\github\\335appmobile-filrouge\\flashquizz\\services\\deckservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|solutionrelative:services\\deckservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|c:\\users\\pe40boh\\documents\\github\\335appmobile-filrouge\\flashquizz\\pages\\editdeckpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|solutionrelative:pages\\editdeckpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|c:\\users\\pe40boh\\documents\\github\\335appmobile-filrouge\\flashquizz\\services\\deckservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|solutionrelative:services\\deckservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|c:\\users\\pe40boh\\documents\\github\\335appmobile-filrouge\\flashquizz\\pages\\editcardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|solutionrelative:pages\\editcardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|c:\\users\\pe40boh\\documents\\github\\335appmobile-filrouge\\flashquizz\\pages\\editcardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|solutionrelative:pages\\editcardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AFA44F66-3D7B-4D4A-A6D4-2CFADEAC1C42}|FlashQuizz.csproj|c:\\users\\pe40boh\\documents\\github\\335appmobile-filrouge\\flashquizz\\services\\cardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,33 +30,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 290,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "DeckService.cs",
               "DocumentMoniker": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\Services\\DeckService.cs",
               "RelativeDocumentMoniker": "Services\\DeckService.cs",
               "ToolTip": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\Services\\DeckService.cs",
               "RelativeToolTip": "Services\\DeckService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-01T14:02:52.886Z",
+              "WhenOpened": "2026-05-01T14:12:22.36Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "EditDeckPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\Pages\\EditDeckPage.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\EditDeckPage.xaml.cs",
               "ToolTip": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\Pages\\EditDeckPage.xaml.cs",
               "RelativeToolTip": "Pages\\EditDeckPage.xaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAsAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-01T14:00:51.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-01T14:12:06.312Z"
             },
             {
               "$type": "Document",
@@ -68,25 +67,23 @@
               "RelativeToolTip": "Services\\CardService.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAowD8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-01T13:58:35.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-01T13:58:35.941Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "EditCardPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\Pages\\EditCardPage.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\EditCardPage.xaml.cs",
               "ToolTip": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\Pages\\EditCardPage.xaml.cs",
               "RelativeToolTip": "Pages\\EditCardPage.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-01T13:54:22.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-01T13:54:22.244Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "EditCardPage.xaml",
               "DocumentMoniker": "C:\\Users\\pe40boh\\Documents\\GitHub\\335AppMobile-FilRouge\\FlashQuizz\\Pages\\EditCardPage.xaml",
               "RelativeDocumentMoniker": "Pages\\EditCardPage.xaml",
@@ -94,8 +91,7 @@
               "RelativeToolTip": "Pages\\EditCardPage.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-01T13:54:20.896Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-01T13:54:20.896Z"
             }
           ]
         }

@@ -176,5 +176,11 @@ namespace FlashQuizz
                 CardsCollectionView.ItemsSource = filtered;
             }
         }
+
+        //show a card
+        private void OnCardClicked(object sender, EventArgs e)
+        {
+            //naviguer pour show la carte sur une nouvelle page
+        }
     }
 }
