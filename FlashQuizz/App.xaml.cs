@@ -1,4 +1,5 @@
 ﻿using FlashQuizz;
+using FlashQuizz.Pages;
 
 namespace FlashQuizz
 {
@@ -11,6 +12,7 @@ namespace FlashQuizz
             // Register navigation routes
             Routing.RegisterRoute("EditDeck", typeof(EditDeckPage));
             Routing.RegisterRoute("EditCard", typeof(EditCardPage));
+            Routing.RegisterRoute("ShowCard", typeof(ShowCardPage));
 
             MainPage = new AppShell();
         }

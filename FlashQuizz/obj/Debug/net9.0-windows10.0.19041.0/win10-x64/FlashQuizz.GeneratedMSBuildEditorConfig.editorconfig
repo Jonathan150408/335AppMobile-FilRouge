@@ -70,6 +70,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.InfosPage
 build_metadata.AdditionalFiles.TargetPath = Pages\InfosPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\InfosPage.xaml
 
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/ShowCardPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.ShowCardPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\ShowCardPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\ShowCardPage.xaml
+
 [C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Resources.Styles.Colors.xaml

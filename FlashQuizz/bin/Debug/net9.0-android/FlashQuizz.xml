@@ -79,6 +79,12 @@
         <member name="M:FlashQuizz.DecksPage.sortDecks">
             améliorations
         </member>
+        <member name="M:FlashQuizz.Pages.ShowCardPage.ApplyQueryAttributes(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Get the navigation parameters
+            </summary>
+            <param name="query"></param>
+        </member>
         <member name="T:FlashQuizz.Services.CardService">
             <summary>
             Une classe qui permet d'accèder aux données de la base de données (ici, des fichiers JSON)

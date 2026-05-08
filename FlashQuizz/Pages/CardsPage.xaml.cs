@@ -178,9 +178,25 @@ namespace FlashQuizz
         }
 
         //show a card
-        private void OnCardClicked(object sender, EventArgs e)
+        private async void OnCardClicked(object sender, EventArgs e)
         {
+            UpdateInfo("En train de naviguer");
+
             //naviguer pour show la carte sur une nouvelle page
+            Button? button = sender as Button;
+            Card? card = button?.CommandParameter as Card;
+
+            UpdateInfo($"En train de naviguer vers : { card.Question }");
+
+            if (card == null) return;
+            Dictionary<string, object> navigationParameter = new Dictionary<string, object>
+            {
+                { "card", card },
+                { "dataService", _dataService }
+            };
+            await Shell.Current.GoToAsync("ShowCard", navigationParameter);
+            UpdateInfo($"Navigué jusqu'à : {card}");
+
         }
     }
 }

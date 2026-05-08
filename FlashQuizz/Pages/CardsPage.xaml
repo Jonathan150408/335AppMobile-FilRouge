@@ -44,7 +44,8 @@
                            BorderColor="LightGray"
                            CornerRadius="8"
                            HasShadow="True">
-                        <Grid ColumnDefinitions="*,Auto,Auto">
+                        <Grid ColumnDefinitions="*,Auto,Auto"
+                              BackgroundColor="LightGrey">
 
                             <!-- Card info -->
                             <StackLayout Grid.Column="0"
@@ -52,9 +53,10 @@
                                 <Button Text="{Binding Question}"
                                         FontSize="18"
                                         FontAttributes="Bold"
-                                        BackgroundColor="Transparent"
+                                        BackgroundColor="LightGray"
                                         TextColor="Black"
-                                        Clicked="OnCardClicked"/>
+                                        Clicked="OnCardClicked"
+                                        CommandParameter="{Binding .}"/>
                             </StackLayout>
 
                             <!-- Edit button -->
