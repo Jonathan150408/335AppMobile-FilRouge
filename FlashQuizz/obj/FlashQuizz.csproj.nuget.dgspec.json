@@ -34,19 +34,23 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0-android35.0": {
+          "net9.0-android": {
+            "framework": "net9.0-android35.0",
             "targetAlias": "net9.0-android",
             "projectReferences": {}
           },
-          "net9.0-ios26.2": {
+          "net9.0-ios": {
+            "framework": "net9.0-ios26.2",
             "targetAlias": "net9.0-ios",
             "projectReferences": {}
           },
-          "net9.0-maccatalyst26.2": {
+          "net9.0-maccatalyst": {
+            "framework": "net9.0-maccatalyst26.2",
             "targetAlias": "net9.0-maccatalyst",
             "projectReferences": {}
           },
-          "net9.0-windows10.0.19041": {
+          "net9.0-windows10.0.19041.0": {
+            "framework": "net9.0-windows10.0.19041",
             "targetAlias": "net9.0-windows10.0.19041.0",
             "projectReferences": {}
           }
@@ -61,10 +65,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
-        "net9.0-android35.0": {
+        "net9.0-android": {
+          "framework": "net9.0-android35.0",
           "targetAlias": "net9.0-android",
           "dependencies": {
             "Microsoft.Extensions.Logging.Debug": {
@@ -78,7 +83,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.14, )",
+              "version": "[9.0.16, )",
               "autoReferenced": true
             }
           },
@@ -115,9 +120,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
         },
-        "net9.0-ios26.2": {
+        "net9.0-ios": {
+          "framework": "net9.0-ios26.2",
           "targetAlias": "net9.0-ios",
           "dependencies": {
             "Microsoft.Extensions.Logging.Debug": {
@@ -131,7 +137,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.14, )",
+              "version": "[9.0.16, )",
               "autoReferenced": true
             }
           },
@@ -149,11 +155,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.iOS.Ref.net9.0_26.2",
-              "version": "[26.2.9000, 26.2.9000]"
+              "version": "[26.2.9008, 26.2.9008]"
             },
             {
               "name": "Microsoft.iOS.Runtime.iossimulator-x64.net9.0_26.2",
-              "version": "[26.2.9000, 26.2.9000]"
+              "version": "[26.2.9008, 26.2.9008]"
             }
           ],
           "frameworkReferences": {
@@ -164,9 +170,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
         },
-        "net9.0-maccatalyst26.2": {
+        "net9.0-maccatalyst": {
+          "framework": "net9.0-maccatalyst26.2",
           "targetAlias": "net9.0-maccatalyst",
           "dependencies": {
             "Microsoft.Extensions.Logging.Debug": {
@@ -180,7 +187,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.14, )",
+              "version": "[9.0.16, )",
               "autoReferenced": true
             }
           },
@@ -199,11 +206,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.MacCatalyst.Ref.net9.0_26.2",
-              "version": "[26.2.9000, 26.2.9000]"
+              "version": "[26.2.9008, 26.2.9008]"
             },
             {
               "name": "Microsoft.MacCatalyst.Runtime.maccatalyst-x64.net9.0_26.2",
-              "version": "[26.2.9000, 26.2.9000]"
+              "version": "[26.2.9008, 26.2.9008]"
             }
           ],
           "frameworkReferences": {
@@ -214,9 +221,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
         },
-        "net9.0-windows10.0.19041": {
+        "net9.0-windows10.0.19041.0": {
+          "framework": "net9.0-windows10.0.19041",
           "targetAlias": "net9.0-windows10.0.19041.0",
           "dependencies": {
             "Microsoft.Extensions.Logging.Debug": {
@@ -253,7 +261,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

@@ -7,12 +7,14 @@ namespace FlashQuizz
 {
     public partial class ShowDeckPage : ContentPage, IQueryAttributable
     {
-        private CardService _dataService;
+        private DeckService _dataService;
         private Deck _deck;
+        private ObservableCollection<Card> _cards;
 
         public ShowDeckPage()
         {
             InitializeComponent();
+            _cards = new();
         }
 
         /// <summary>
@@ -21,17 +23,52 @@ namespace FlashQuizz
         /// <param name="query"></param>
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            //find the card
             if (query.TryGetValue("deck", out object? deckObj) && deckObj is Deck deck)
             {
                 _deck = deck;
-                CardsCollectionView.ItemsSource = deck.Cards;
+                _cards = deck.Cards;
+                CardsCollectionView.ItemsSource = _cards;
+                title.Title = $"Cartes du deck {_deck.Name}";
             }
-            title.Title = $"Cartes du deck {_deck.Name}";
-            //if (query.TryGetValue("dataService", out object? serviceObj) && serviceObj is CardService service)
-            //{
-            //    _dataService = service;
-            //}
+            if (query.TryGetValue("dataService", out object? serviceObj) && serviceObj is DeckService service)
+            {
+                _dataService = service;
+            }
+        }
+
+        /// <summary>
+        /// Navigate to the card's form page (to create a new card)
+        /// </summary>
+        public async void OnAddCardClicked()
+        {
+            Dictionary<string, object> navigationParameters = new Dictionary<string, object>
+            {
+                { "deck", _deck },
+                { "dataService", _dataService }
+            };
+            await Shell.Current.GoToAsync("EditCardPage", navigationParameters);
+        }
+
+        /// <summary>
+        /// Allow the user to make a research
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = e.NewTextValue?.ToLower() ?? "";
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                CardsCollectionView.ItemsSource = _cards;
+            }
+            else
+            {
+                List<Card> filtered = _cards.Where(d =>
+                    d.Question.ToLower().Contains(searchText)
+                ).ToList();
+                CardsCollectionView.ItemsSource = filtered;
+            }
         }
     }
 }

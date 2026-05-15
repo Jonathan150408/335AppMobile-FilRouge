@@ -49,7 +49,7 @@ namespace FlashQuizz
             }
             else if (string.IsNullOrWhiteSpace(newAnswer))
             {
-                await DisplayAlert("Erreur", "Le champ question ne peut pas être vide", "OK");
+                await DisplayAlert("Erreur", "Le champ réponse ne peut pas être vide", "OK");
                 return;
             }
 

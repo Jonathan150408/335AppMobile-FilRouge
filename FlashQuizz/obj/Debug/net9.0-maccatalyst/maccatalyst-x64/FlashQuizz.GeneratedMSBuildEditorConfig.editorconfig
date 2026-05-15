@@ -12,6 +12,7 @@ build_property.ProjectTypeGuids =
 build_property.InvariantGlobalization = false
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FlashQuizz
 build_property.ProjectDir = C:\Users\jnats\Documents\GitHub\335AppMobile-FilRouge\FlashQuizz\

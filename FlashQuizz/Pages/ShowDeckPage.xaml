@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FlashQuizz.ShowDeckPage"
-             Title="Deck {deckName}"
+             Title="Une erreur est survenue"
              x:Name="title">
+             <!-- Le title est changé dans le code -> par défaut texte erreur-->
 
     <Grid RowDefinitions="Auto,*,Auto" Padding="10">
 
@@ -12,25 +13,17 @@
             <HorizontalStackLayout Grid.Row="0"
                                   Spacing="10"
                                   Margin="0,0,0,10">
-                <VerticalStackLayout>
-                    <Entry x:Name="NewCardQuestionEntry"
-                           Placeholder="Question de la nouvelle carte"
-                           HorizontalOptions="FillAndExpand" />
 
-                    <Entry x:Name="NewCardAnswerEntry"
-                           Placeholder="Réponse de la nouvelle carte"
-                           HorizontalOptions="FillAndExpand" />
-                </VerticalStackLayout>
-
-                <!-- Clicked="OnAddCardClicked" -->
+                <!--"Add button that redirects the user -->
                 <Button Text="Ajouter"
+                        Clicked="OnAddCardClicked"
                         BackgroundColor="#2196F3"
                         TextColor="White" />
             </HorizontalStackLayout>
 
-            <!-- TextChanged="OnSearchTextChanged" -->
             <SearchBar Placeholder="Rechercher une carte..."
-               Margin="0,0,0,10" />
+                       TextChanged="OnSearchTextChanged"
+                       Margin="0,0,0,10" />
 
         </VerticalStackLayout>
 
