@@ -3,15 +3,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-# Remove binary files
-*.pdf
-*.zip
-*.docx
-*.png
-
-# Include certain files
-!doc/*.pdf
-
 # User-specific files
 *.rsuser
 *.suo
@@ -408,5 +399,12 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-doc/MM335-P_Mobile-JonathanNeo.loo
-doc/MM335-MCD_MLD.md
+
+# extra things that souldn't be pushed...
+*.vsidx
+*.bin
+*.dll
+*.v2
+*.apk
+*.idsig
+*.pdb
