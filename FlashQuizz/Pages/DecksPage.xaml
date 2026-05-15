@@ -42,9 +42,13 @@
                             <!-- Deck info -->
                             <StackLayout Grid.Column="0"
                                         VerticalOptions="Center">
-                                <Label Text="{Binding Name}"
-                                       FontSize="18"
-                                       FontAttributes="Bold" />
+                                <Button Text="{Binding Name}"
+                                        FontSize="18"
+                                        FontAttributes="Bold"
+                                        BackgroundColor="LightGray"
+                                        TextColor="Black"
+                                        Clicked="OnDeckClicked"
+                                        CommandParameter="{Binding .}"/>
                                 <Label Text="{Binding CardCount, StringFormat='{0} cartes'}"
                                        FontSize="14"
                                        TextColor="Gray" />

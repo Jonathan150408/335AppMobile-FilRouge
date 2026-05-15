@@ -169,5 +169,35 @@ namespace FlashQuizz
                 DecksCollectionView.ItemsSource = filtered;
             }
         }
+
+        /// <summary>
+        /// Permet de montrer toutes les cartes d'un deck (afin de edit et delete = gérer le deck)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void OnDeckClicked(object sender, EventArgs e)
+        {
+            UpdateInfo("En train de chercher les cartes");
+
+            //naviguer pour show toutes les cartes sur une nouvelle page
+            Button? button = sender as Button;
+            Deck? deck = button?.CommandParameter as Deck;
+
+            UpdateInfo($"En train de naviguer vers : {deck.Name}");
+
+            if (deck == null)
+            {
+                UpdateInfo($"Un problème est survenu : {deck.Name} n'a pas été trouvé ou est inaccessible.");
+                return;
+            }
+            Dictionary<string, object> navigationParameter = new Dictionary<string, object>
+            {
+                { "deck", deck },
+                { "dataService", _dataService }
+            };
+            await Shell.Current.GoToAsync("ShowDeck", navigationParameter);
+            UpdateInfo($"Navigué jusqu'à : {deck.Name}");
+
+        }
     }
 }

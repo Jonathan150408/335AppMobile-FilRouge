@@ -79,7 +79,20 @@
         <member name="M:FlashQuizz.DecksPage.sortDecks">
             améliorations
         </member>
+        <member name="M:FlashQuizz.DecksPage.OnDeckClicked(System.Object,System.EventArgs)">
+            <summary>
+            Permet de montrer toutes les cartes d'un deck (afin de edit et delete = gérer le deck)
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:FlashQuizz.Pages.ShowCardPage.ApplyQueryAttributes(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Get the navigation parameters
+            </summary>
+            <param name="query"></param>
+        </member>
+        <member name="M:FlashQuizz.ShowDeckPage.ApplyQueryAttributes(System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Get the navigation parameters
             </summary>
