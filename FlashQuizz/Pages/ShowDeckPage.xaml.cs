@@ -39,14 +39,15 @@ namespace FlashQuizz
         /// <summary>
         /// Navigate to the card's form page (to create a new card)
         /// </summary>
-        public async void OnAddCardClicked()
-        {
+        public async void OnAddCardClicked(object sender, EventArgs e)
+        {            
             Dictionary<string, object> navigationParameters = new Dictionary<string, object>
             {
                 { "deck", _deck },
-                { "dataService", _dataService }
+                { "dataService", _dataService },
+                { "card", null }
             };
-            await Shell.Current.GoToAsync("EditCardPage", navigationParameters);
+            await Shell.Current.GoToAsync("EditCard", navigationParameters);
         }
 
         /// <summary>
