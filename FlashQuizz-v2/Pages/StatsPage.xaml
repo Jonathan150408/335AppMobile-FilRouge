@@ -3,10 +3,231 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FlashQuizz_v2.Pages.StatsPage"
              Title="StatsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid RowDefinitions="70,*">
+
+        <!-- HEADER -->
+        <Grid BackgroundColor="#2563EB"
+              Padding="15,10"
+              ColumnDefinitions="40,*,40">
+
+            <Label Text="☰"
+                   FontSize="22"
+                   TextColor="White"
+                   VerticalOptions="Center"/>
+
+            <Label Grid.Column="1"
+                   Text="Statistiques"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+        </Grid>
+
+        <!-- CONTENT -->
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20,10,20,30"
+                Spacing="18">
+
+                <!-- ICON -->
+                <Frame WidthRequest="90"
+                       HeightRequest="90"
+                       CornerRadius="45"
+                       BackgroundColor="#2563EB"
+                       HasShadow="False"
+                       HorizontalOptions="Center"
+                       Padding="0">
+
+                    <Label Text="🏅"
+                           FontSize="40"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="White"/>
+                </Frame>
+
+                <!-- TITLE -->
+                <VerticalStackLayout Spacing="2">
+
+                    <Label Text="Terminé !"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#1E3A8A"/>
+
+                    <Label Text='Vous avez terminé de réviser "Maths"'
+                           FontSize="14"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#4B5563"/>
+                </VerticalStackLayout>
+
+                <!-- TOTAL TIME -->
+                <Frame Style="{StaticResource CardStyle}">
+                    <Grid ColumnDefinitions="40,*">
+
+                        <Frame WidthRequest="32"
+                               HeightRequest="32"
+                               CornerRadius="16"
+                               Padding="0"
+                               BackgroundColor="#DBEAFE"
+                               HasShadow="False">
+
+                            <Label Text="🕒"
+                                   FontSize="16"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Frame>
+
+                        <VerticalStackLayout Grid.Column="1"
+                                             Spacing="2">
+
+                            <Label Text="Temps total"
+                                   FontSize="13"
+                                   TextColor="#6B7280"/>
+
+                            <Label Text="8m 32s"
+                                   FontSize="28"
+                                   FontAttributes="Bold"
+                                   TextColor="#1E3A8A"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- MEMORIZATION -->
+                <Frame Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="10">
+
+                        <Grid ColumnDefinitions="40,*">
+
+                            <Frame WidthRequest="32"
+                                   HeightRequest="32"
+                                   CornerRadius="16"
+                                   Padding="0"
+                                   BackgroundColor="#DCFCE7"
+                                   HasShadow="False">
+
+                                <Label Text="📈"
+                                       FontSize="16"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+
+                            <VerticalStackLayout Grid.Column="1"
+                                                 Spacing="2">
+
+                                <Label Text="Pourcentage de mémorisation"
+                                       FontSize="13"
+                                       TextColor="#6B7280"/>
+
+                                <Label Text="75%"
+                                       FontSize="24"
+                                       FontAttributes="Bold"
+                                       TextColor="#1E3A8A"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                        <!-- Progress Bar -->
+                        <ProgressBar Progress="0.75"
+                                     HeightRequest="10"
+                                     BackgroundColor="#DCE7F5"
+                                     ProgressColor="#22C55E"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- KNOWN CARDS -->
+                <Frame Style="{StaticResource CardStyle}">
+                    <Grid ColumnDefinitions="40,*">
+
+                        <Frame WidthRequest="32"
+                               HeightRequest="32"
+                               CornerRadius="16"
+                               Padding="0"
+                               BackgroundColor="#DBEAFE"
+                               HasShadow="False">
+
+                            <Label Text="✔"
+                                   FontSize="16"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Frame>
+
+                        <VerticalStackLayout Grid.Column="1"
+                                             Spacing="2">
+
+                            <Label Text="Cartes connues"
+                                   FontSize="13"
+                                   TextColor="#6B7280"/>
+
+                            <Label Text="18 / 32"
+                                   FontSize="28"
+                                   FontAttributes="Bold"
+                                   TextColor="#1E3A8A"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- MOST FAILED -->
+                <Frame Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="10">
+
+                        <HorizontalStackLayout Spacing="10">
+
+                            <Frame BackgroundColor="#FEE2E2"
+                                   CornerRadius="8"
+                                   Padding="8,4"
+                                   HasShadow="False">
+
+                                <Label Text="La plus dure"
+                                       FontSize="12"
+                                       TextColor="#DC2626"/>
+                            </Frame>
+
+                            <Label Text="Revue 3 fois"
+                                   FontSize="12"
+                                   VerticalOptions="Center"
+                                   TextColor="#2563EB"/>
+                        </HorizontalStackLayout>
+
+                        <Frame BackgroundColor="#EFF6FF"
+                               CornerRadius="12"
+                               HasShadow="False"
+                               BorderColor="#2563EB"
+                               Padding="12">
+
+                            <VerticalStackLayout Spacing="4">
+
+                                <Label Text="Question"
+                                       FontSize="12"
+                                       TextColor="#6B7280"/>
+
+                                <Label Text="Combien vaut sin(90)"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#1E3A8A"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- BUTTONS -->
+                <Button Text="Recommencer"
+                        HeightRequest="55"
+                        BackgroundColor="#2563EB"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="12"/>
+
+                <Button Text="Retour"
+                        HeightRequest="55"
+                        BackgroundColor="White"
+                        TextColor="#2563EB"
+                        BorderColor="#D1D5DB"
+                        BorderWidth="1"
+                        FontAttributes="Bold"
+                        CornerRadius="12"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

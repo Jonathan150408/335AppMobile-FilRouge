@@ -134,7 +134,7 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
         correctResponsesAverage.Text = $"{average} %";
 
         //update the displayed card or go to stats if no cards left
-        if (cardsLeft.FindAll(c => c != null) == null)
+        if (cardsLeft.FindAll(c => c != null).Count == 0)
         {
             //training finished
             startTime.Stop();
@@ -147,7 +147,7 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
                 { "knownCards", firstTryCounter },
                 { "goodAnswersAverage", average }
             };
-            await Shell.Current.GoToAsync("..", navigationParameter);
+            await Shell.Current.GoToAsync("Stats", navigationParameter);
         }
         else
         {
