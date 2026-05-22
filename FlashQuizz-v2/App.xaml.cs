@@ -1,15 +1,18 @@
-﻿namespace FlashQuizz_v2
+﻿using FlashQuizz_v2.Pages;
+
+namespace FlashQuizz_v2
 {
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
-        }
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
+            // Register navigation routes
+            Routing.RegisterRoute("EditDeck", typeof(EditDeckPage));
+            Routing.RegisterRoute("EditCard", typeof(EditCardPage));
+
+            MainPage = new AppShell();
         }
     }
 }
