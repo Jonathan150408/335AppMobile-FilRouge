@@ -195,7 +195,7 @@ namespace FlashQuizz_v2.Pages
                 { "deck", deck },
                 { "dataService", _dataService }
             };
-            await Shell.Current.GoToAsync("ShowDeck", navigationParameter);
+            await Shell.Current.GoToAsync("CardsPage", navigationParameter);
             UpdateInfo($"Navigué jusqu'à : {deck.Name}");
 
         }
