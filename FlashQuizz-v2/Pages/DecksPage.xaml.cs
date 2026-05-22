@@ -1,19 +1,21 @@
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
+using FlashQuizz_v2.Models;
+using FlashQuizz_v2.Services;
 
-namespace FlashQuizz_v2
+namespace FlashQuizz_v2.Pages
 {
     public partial class DecksPage : ContentPage
     {
         private DeckService _dataService;
-        private ObservableCollection<Deck> _decks;  // List devient ObservableCollection
+        private ObservableCollection<Deck> _decks;
         private int _nextId = 1;
 
         public DecksPage()
         {
             InitializeComponent();
             _dataService = new DeckService();
-            _decks = new ObservableCollection<Deck>();  // new ObservableCollection
+            _decks = new ObservableCollection<Deck>();
             LoadDecks();
         }
 
