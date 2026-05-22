@@ -31,6 +31,7 @@ namespace FlashQuizz_v2.Pages
                 _dataService = service;
             }
 
+
             if (query.TryGetValue("cards", out object? cardsObj) && cardsObj is ObservableCollection<Card> cards)
             {
                 _cards = cards;

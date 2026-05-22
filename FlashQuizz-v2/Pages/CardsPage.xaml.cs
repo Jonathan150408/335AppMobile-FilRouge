@@ -95,21 +95,21 @@ namespace FlashQuizz_v2.Pages
         private async void OnEditCardClicked(object sender, EventArgs e)
         {
             Button? button = sender as Button;
-            Card? Card = button?.CommandParameter as Card;
+            Card? card = button?.CommandParameter as Card;
 
-            if (Card == null) return;
+            if (card == null) return;
 
             // Navigate to edit page using Shell
             // Pass Card, dataService and Cards list so EditCardPage can save
             Dictionary<string, object> navigationParameter = new Dictionary<string, object>
             {
-                { "Card", Card },
+                { "card", card },
                 { "dataService", _dataService },
-                { "Cards", _cards }
+                { "cards", _cards }
             };
             await Shell.Current.GoToAsync("EditCard", navigationParameter);
 
-            UpdateInfo($"Modifié: {Card}");
+            UpdateInfo($"Modifié: {card}");
         }
 
         // Refresh view when returning from edit page
@@ -192,7 +192,8 @@ namespace FlashQuizz_v2.Pages
             Dictionary<string, object> navigationParameter = new Dictionary<string, object>
             {
                 { "card", card },
-                { "dataService", _dataService }
+                { "dataService", _dataService },
+                { "cards", _cards }
             };
             await Shell.Current.GoToAsync("ShowCard", navigationParameter);
             UpdateInfo($"Navigué jusqu'à : {card}");
