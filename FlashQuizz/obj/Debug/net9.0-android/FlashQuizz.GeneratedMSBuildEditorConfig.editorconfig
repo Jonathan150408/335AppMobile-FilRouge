@@ -4,90 +4,87 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net9.0-android
-build_property.TargetFrameworkIdentifier = .NETCoreApp
-build_property.TargetFrameworkVersion = v9.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = false
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
-build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FlashQuizz
-build_property.ProjectDir = C:\Users\jnats\Documents\GitHub\335AppMobile-FilRouge\FlashQuizz\
+build_property.ProjectDir = C:\Users\pe40boh\Documents\GitHub\335AppMobile-FilRouge\FlashQuizz\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/App.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/AppShell.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/MainPage.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/CardsPage.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/CardsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.CardsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\CardsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\CardsPage.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/DecksPage.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/DecksPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.DecksPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\DecksPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\DecksPage.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/EditCardPage.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/EditCardPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.EditCardPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\EditCardPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\EditCardPage.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/EditDeckPage.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/EditDeckPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.EditDeckPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\EditDeckPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\EditDeckPage.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/InfosPage.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/InfosPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.InfosPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\InfosPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\InfosPage.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/ShowCardPage.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/ShowCardPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.ShowCardPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\ShowCardPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\ShowCardPage.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/ShowDeckPage.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Pages/ShowDeckPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Pages.ShowDeckPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\ShowDeckPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\ShowDeckPage.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Resources/Styles/Colors.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/jnats/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Resources/Styles/Styles.xaml]
+[C:/Users/pe40boh/Documents/GitHub/335AppMobile-FilRouge/FlashQuizz/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FlashQuizz.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
