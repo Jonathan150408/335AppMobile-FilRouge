@@ -5,6 +5,8 @@
              Title="Cards">
 
     <Grid RowDefinitions="Auto,*,Auto" Padding="10">
+        <Button Text="Commencer l'entrainement"
+                Clicked="OnStartTrainingClicked"/>
 
         <VerticalStackLayout>
             <!-- Header with add button -->

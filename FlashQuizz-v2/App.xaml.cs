@@ -12,6 +12,7 @@ namespace FlashQuizz_v2
             Routing.RegisterRoute("EditDeck", typeof(EditDeckPage));
             Routing.RegisterRoute("EditCard", typeof(EditCardPage));
             Routing.RegisterRoute("CardsPage", typeof(CardsPage));
+            Routing.RegisterRoute("TrainingPage", typeof(TrainingPage));
 
             MainPage = new AppShell();
         }

@@ -199,5 +199,17 @@ namespace FlashQuizz_v2.Pages
             UpdateInfo($"Navigué jusqu'à : {card}");
 
         }
+
+        private async void OnStartTrainingClicked(object sender, EventArgs e)
+        {
+            UpdateInfo("En train de naviguer");
+
+            //naviguer pour commencer l'entrainement
+            Dictionary<string, object> navigationParameter = new Dictionary<string, object>
+            {
+                { "cards", _cards }
+            };
+            await Shell.Current.GoToAsync("TrainingPage", navigationParameter);
+        }
     }
 }

@@ -2,11 +2,54 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FlashQuizz_v2.Pages.TrainingPage"
-             Title="TrainingPage">
+             Title="Révision">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+        <!-- The card (rectangle) -->
+        <Button x:Name="rotateButton"
+                Text="Chargement..."
+                FontSize="18"
+                FontAttributes="Bold"
+                BackgroundColor="LightGray"
+                TextColor="Black"
+                HeightRequest="256"
+                WidthRequest="256"
+                Clicked="OnRotateClicked"/>
+
+        <!-- The counters of correct and wrong responses -->
+        <Grid RowDefinitions="*,*"
+              Margin="32">
+            <Label TextColor="LightGray"
+                   Text="Taux de bonnes réponses : "/>
+            <Label x:Name="correctResponsesAverage"
+                   Text="0%"
+                   TextColor="LightGray"/>
+        </Grid>
+
+        <!-- The correct and wrong guess buttons -->
+        <Grid ColumnDefinitions="*,Auto,*"
+              Margin="32, 32, 32, 32"
+              VerticalOptions="End"
+              x:Name="EvalButtons"
+              IsVisible="False">
+            <!-- Wrong button -->
+            <Button Grid.Column="0"
+                    Text="Wrong ❌"
+                    FontSize="20"
+                    BackgroundColor="Red"
+                    TextColor="Black"
+                    Clicked="AddWrongAnswer" 
+                    Margin="5"/>
+
+            <!-- Correct button -->
+            <Button Grid.Column="2"
+                    Text="Correct ✔"
+                    FontSize="20"
+                    BackgroundColor="Green"
+                    TextColor="Black"
+                    Clicked="AddCorrectAnswer"
+                    Margin="5"/>
+        </Grid>
+
     </VerticalStackLayout>
 </ContentPage>
