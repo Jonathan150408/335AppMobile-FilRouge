@@ -74,6 +74,41 @@ namespace FlashQuizz_v2.Services
                 System.Diagnostics.Debug.WriteLine($"Error saving: {ex.Message}");
             }
         }
+
+        /// <summary>
+        /// Permet de modifier un unique deck, bien qu'il faille quand même sauvegarder tous les decks
+        /// </summary>
+        /// <param name="deck">Le deck édité</param>
+        /// <returns></returns>
+        public async Task SaveDeckAsync(Deck deck)
+        {
+            //recevoir tous les deck
+            List<Deck> decks = await LoadDecksAsync();
+
+            //séparer le deck édité des autres
+            Deck oldDeck = decks.Find(d => d.Id == deck.Id);
+            List<Deck> othersDecks = decks.FindAll(d => d.Id != deck.Id);
+
+            //update l'ancien et créer une nouvelle version de la liste
+            oldDeck = deck;
+            othersDecks.Add(deck);
+
+            //sauvegarder les decks
+            try
+            {
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                };
+                string json = JsonSerializer.Serialize(othersDecks, options);
+                await File.WriteAllTextAsync(_filePath, json);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error saving: {ex.Message}");
+            }
+        }
+
         /// <summary>
         /// Permet de recevoir le chemin actuel
         /// </summary>

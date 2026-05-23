@@ -5,44 +5,64 @@ using System.Xml.Linq;
 
 namespace FlashQuizz_v2.Pages
 {
-    public partial class CardsPage : ContentPage
+    public partial class CardsPage : ContentPage, IQueryAttributable
     {
-        private CardService _dataService;
+        private Deck _deck;
+        private DeckService _dataService;
         private ObservableCollection<Card> _cards;
         private int _nextId = 1;
 
         public CardsPage()
         {
             InitializeComponent();
-            _dataService = new CardService();
+            _dataService = new DeckService();
             _cards = new ObservableCollection<Card>();
-            LoadCards();
+            //LoadCards();
         }
 
-        private async void LoadCards()
+        /// <summary>
+        /// Get the navigation parameters
+        /// </summary>
+        /// <param name="query"></param>
+        public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            List<Card> loadedCards = await _dataService.LoadCardsAsync();
-
-            // Clear and repopulate ObservableCollection
-            _cards.Clear();
-            foreach (Card Card in loadedCards)
+            if (query.TryGetValue("deck", out object? deckObj) && deckObj is Deck deck)
             {
-                _cards.Add(Card);
-            }
-
-            if (_cards.Any())
-            {
-                _nextId = _cards.Max(d => d.Id) + 1;
-            }
-
-            // Assign ItemsSource ONCE (no need to reassign every time)
-            if (CardsCollectionView.ItemsSource == null)
-            {
+                _deck = deck;
+                _cards = deck.Cards;
+                if (_cards.Any())
+                {
+                    _nextId = _cards.Max(d => d.Id) + 1;
+                }
                 CardsCollectionView.ItemsSource = _cards;
+                UpdateInfo($"Chargé: {_cards.Count} Card(s)");
             }
-
-            UpdateInfo($"Chargé: {_cards.Count} Card(s)");
         }
+
+
+        //private async void LoadCards()
+        //{
+        //    List<Card> loadedCards = await _dataService.LoadCardsAsync();
+
+        //    // Clear and repopulate ObservableCollection
+        //    _cards.Clear();
+        //    foreach (Card Card in loadedCards)
+        //    {
+        //        _cards.Add(Card);
+        //    }
+
+        //    if (_cards.Any())
+        //    {
+        //        _nextId = _cards.Max(d => d.Id) + 1;
+        //    }
+
+        //    // Assign ItemsSource ONCE (no need to reassign every time)
+        //    if (CardsCollectionView.ItemsSource == null)
+        //    {
+        //        CardsCollectionView.ItemsSource = _cards;
+        //    }
+        //}
+
         /// <summary>
         /// met les infos à jour
         /// </summary>
@@ -80,8 +100,9 @@ namespace FlashQuizz_v2.Pages
                 Answer = answer
             };
 
-            _cards.Add(newCard);  // La vue se met à jour automatiquement !
-            await _dataService.SaveCardsAsync(_cards.ToList());
+            _deck.Cards.Add(newCard);
+            _cards = _deck.Cards;
+            await _dataService.SaveDeckAsync(_deck);
 
             NewCardQuestionEntry.Text = string.Empty;
             NewCardAnswerEntry.Text = string.Empty;
@@ -145,8 +166,9 @@ namespace FlashQuizz_v2.Pages
 
             if (!confirm) return;
 
-            _cards.Remove(Card);  // La vue se met à jour automatiquement !
-            await _dataService.SaveCardsAsync(_cards.ToList());
+            _deck.Cards.Remove(Card);
+            _cards = _deck.Cards;
+            await _dataService.SaveDeckAsync(_deck);
 
             UpdateInfo($"Supprimé: {Card.Question}");
         }
@@ -207,7 +229,7 @@ namespace FlashQuizz_v2.Pages
             //naviguer pour commencer l'entrainement
             Dictionary<string, object> navigationParameter = new Dictionary<string, object>
             {
-                { "cards", _cards }
+                { "deck", _deck }
             };
             await Shell.Current.GoToAsync("TrainingPage", navigationParameter);
         }

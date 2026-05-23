@@ -5,25 +5,6 @@
              Title="StatsPage">
     <Grid RowDefinitions="70,*">
 
-        <!-- HEADER -->
-        <Grid BackgroundColor="#2563EB"
-              Padding="15,10"
-              ColumnDefinitions="40,*,40">
-
-            <Label Text="☰"
-                   FontSize="22"
-                   TextColor="White"
-                   VerticalOptions="Center"/>
-
-            <Label Grid.Column="1"
-                   Text="Statistiques"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   TextColor="White"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"/>
-        </Grid>
-
         <!-- CONTENT -->
         <ScrollView Grid.Row="1">
 
@@ -56,10 +37,11 @@
                            HorizontalTextAlignment="Center"
                            TextColor="#1E3A8A"/>
 
-                    <Label Text='Vous avez terminé de réviser "Maths"'
+                    <Label Text='En chargement...'
                            FontSize="14"
                            HorizontalTextAlignment="Center"
-                           TextColor="#4B5563"/>
+                           TextColor="#4B5563"
+                           x:Name="finishMessage"/>
                 </VerticalStackLayout>
 
                 <!-- TOTAL TIME -->

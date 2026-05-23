@@ -8,6 +8,10 @@ namespace FlashQuizz_v2.Pages;
 public partial class TrainingPage : ContentPage, IQueryAttributable
 {
     /// <summary>
+    /// This is the deck to show and to use
+    /// </summary>
+    private Deck _deck;
+    /// <summary>
     /// These are the cards the the user must do to finish
     /// </summary>
     private List<Card> cardsLeft;
@@ -41,10 +45,10 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     /// <param name="query"></param>
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        if (query.TryGetValue("cards", out object? cardsObj)  && cardsObj is ObservableCollection<Card> cards)
+        if (query.TryGetValue("deck", out object? deckObj)  && deckObj is Deck deck)
         {
-            cardsLeft = Shuffle(cards.ToList());
-            cardsCount = cards.Count;
+            cardsLeft = Shuffle(deck.Cards.ToList());
+            cardsCount = deck.Cards.Count;
             currentPosition = new Random().Next(0, cardsCount);
             rotateButton.Text = cardsLeft[currentPosition].Question;
         }
@@ -143,7 +147,7 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
             Dictionary<string, object> navigationParameter = new Dictionary<string, object>
             {
                 { "timeElapsed", startTime.ElapsedMilliseconds },
-                { "cards", cardsDone },
+                { "deck", _deck},
                 { "knownCards", firstTryCounter },
                 { "goodAnswersAverage", average }
             };
