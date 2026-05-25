@@ -9,12 +9,17 @@ namespace FlashQuizz_v2.Pages
         private Card _card;
         private Deck _deck;
         private DeckService _dataService;
+        //handle card creation
+        private bool isNew = false;
         public EditCardPage()
         {
             InitializeComponent();
         }
 
-        // Receive navigation parameters
+        /// <summary>
+        /// Receive navigation parameters
+        /// </summary>
+        /// <param name="query"></param>
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
             if (query.TryGetValue("card", out object? cardObj) && cardObj is Card card)
@@ -31,10 +36,16 @@ namespace FlashQuizz_v2.Pages
                 _dataService = service;
             }
 
-
             if (query.TryGetValue("deck", out object? deckObj) && deckObj is Deck deck)
             {
                 _deck = deck;
+            }
+
+            //if the card isn't in the deck (on Add for example), we add it now
+            if (!_deck.Cards.Any(c => c.Id == _card.Id))
+            {
+                isNew = true;
+                _deck.Cards.Add(_card);
             }
         }
 
@@ -54,7 +65,7 @@ namespace FlashQuizz_v2.Pages
                 return;
             }
 
-            // Update card (ObservableCollection détecte le changement si on remplace l'objet)
+            // Update card
             _card.Question = newQuestion;
             _card.Answer = newAnswer;
 
@@ -64,8 +75,19 @@ namespace FlashQuizz_v2.Pages
             await Shell.Current.GoToAsync("..");
         }
 
+        /// <summary>
+        /// Go to the previous page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void OnCancelClicked(object sender, EventArgs e)
         {
+            //remove the new card
+            if (isNew)
+            {
+                _deck.Cards.RemoveAt(_deck.Cards.ToList().FindIndex(c => c.Id == _card.Id));
+            }
+
             await Shell.Current.GoToAsync("..");
         }
     }

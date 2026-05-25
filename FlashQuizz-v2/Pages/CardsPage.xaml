@@ -1,113 +1,145 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FlashQuizz_v2.Pages.CardsPage"
-             Title="Cards">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FlashQuizz_v2.Pages.CardsPage"
+    Title="Anglais"
+    BackgroundColor="#EAF1FF">
 
-    <Grid RowDefinitions="Auto,*,Auto" Padding="10">
-        <Button Text="Commencer l'entrainement"
-                Clicked="OnStartTrainingClicked"/>
+    <!-- Add button -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Priority="0"
+                     Order="Primary"
+                     Clicked="OnAddCardClicked"/>
 
-        <VerticalStackLayout>
-            <!-- Header with add button -->
-            <HorizontalStackLayout Grid.Row="0"
-                                  Spacing="10"
-                                  Margin="0,0,0,10">
-                <VerticalStackLayout>
-                    <Entry x:Name="NewCardQuestionEntry"
-                           Placeholder="Question de la nouvelle carte"
-                           HorizontalOptions="FillAndExpand" />
+    </ContentPage.ToolbarItems>
 
-                    <Entry x:Name="NewCardAnswerEntry"
-                           Placeholder="Réponse de la nouvelle carte"
-                           HorizontalOptions="FillAndExpand" />
-                </VerticalStackLayout>
+    <Grid RowDefinitions="Auto,Auto,*"
+          Padding="10">
 
-                <Button Text="Ajouter"
-                        Clicked="OnAddCardClicked"
-                        BackgroundColor="#2196F3"
-                        TextColor="White" />
-            </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Row="0"
+                             Spacing="10">
 
-            <SearchBar Placeholder="Rechercher une carte..."
-               TextChanged="OnSearchTextChanged"
-               Margin="0,0,0,10" />
+            <!-- Number of cards-->
+            <Label Text="{Binding Cards.Count, StringFormat='{}{0} cartes'}"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="#2563EB" />
+
+            <!-- Training button -->
+            <Button Text="▷ Commencer l'entraînement"
+                    Clicked="OnStartTrainingClicked"
+                    BackgroundColor="#2563EB"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="12"
+                    HeightRequest="45"/>
 
         </VerticalStackLayout>
 
-        <!-- Cards list -->
-        <CollectionView Grid.Row="1"
-                       x:Name="CardsCollectionView"
-                       SelectionMode="None">
+        <!-- List of cards -->
+        <CollectionView Grid.Row="2"
+                        Margin="0,15,0,0"
+                        x:Name="CardsCollectionView"
+                        SelectionMode="None">
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="0,5"
-                           Padding="10"
-                           BorderColor="LightGray"
-                           CornerRadius="8"
-                           HasShadow="True">
-                        <Grid ColumnDefinitions="*,Auto,Auto"
-                              BackgroundColor="LightGrey">
 
-                            <!-- Card info -->
-                            <StackLayout Grid.Column="0"
-                                        VerticalOptions="Center">
-                                <Button Text="{Binding Question}"
-                                        FontSize="18"
-                                        FontAttributes="Bold"
-                                        BackgroundColor="LightGray"
-                                        TextColor="Black"
-                                        Clicked="OnCardClicked"
+                    <!-- Card -->
+                    <Frame Margin="0,0,0,12"
+                           Padding="12"
+                           CornerRadius="12"
+                           BackgroundColor="White"
+                           BorderColor="Transparent"
+                           HasShadow="False">
+
+                        <VerticalStackLayout Spacing="10">
+
+                            <!-- Question -->
+                            <VerticalStackLayout Spacing="2">
+
+                                <Label Text="Question"
+                                       FontSize="10"
+                                       TextColor="Gray"
+                                       FontAttributes="Bold"/>
+
+                                <Label Text="{Binding Question}"
+                                       FontSize="15"
+                                       FontAttributes="Bold"
+                                       TextColor="#1E3A8A"/>
+                            </VerticalStackLayout>
+
+                            <!-- Response -->
+                            <VerticalStackLayout Spacing="2">
+
+                                <Label Text="Réponse"
+                                       FontSize="10"
+                                       TextColor="Gray"
+                                       FontAttributes="Bold"/>
+
+                                <Label Text="{Binding Answer}"
+                                       FontSize="14"
+                                       TextColor="#2563EB"/>
+                            </VerticalStackLayout>
+
+                            <!-- Buttons -->
+                            <Grid ColumnDefinitions="*,*"
+                                  ColumnSpacing="10">
+
+                                <!-- Edit -->
+                                <Button Grid.Column="0"
+                                        Text="✏ Editer"
+                                        BackgroundColor="#3B82F6"
+                                        TextColor="White"
+                                        CornerRadius="10"
+                                        HeightRequest="38"
+                                        Clicked="OnEditCardClicked"
                                         CommandParameter="{Binding .}"/>
-                            </StackLayout>
 
-                            <!-- Edit button -->
-                            <Button Grid.Column="1"
-                                   Text="✏️"
-                                   FontSize="20"
-                                   BackgroundColor="Transparent"
-                                   Clicked="OnEditCardClicked"
-                                   CommandParameter="{Binding .}" />
+                                <!-- Delete -->
+                                <Button Grid.Column="1"
+                                        Text="🗑 Supprimer"
+                                        BackgroundColor="#EF4444"
+                                        TextColor="White"
+                                        CornerRadius="10"
+                                        HeightRequest="38"
+                                        Clicked="OnDeleteCardClicked"
+                                        CommandParameter="{Binding .}"/>
 
-                            <!-- Delete button -->
-                            <Button Grid.Column="2"
-                                   Text="🗑️"
-                                   FontSize="20"
-                                   BackgroundColor="Transparent"
-                                   Clicked="OnDeleteCardClicked"
-                                   CommandParameter="{Binding .}" />
-                        </Grid>
+                            </Grid>
+
+                        </VerticalStackLayout>
+
                     </Frame>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
 
-            <!-- Empty view -->
+            <!-- Empty View -->
             <CollectionView.EmptyView>
-                <StackLayout HorizontalOptions="Center"
-                            VerticalOptions="Center">
+
+                <VerticalStackLayout VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     Spacing="10">
+
                     <Label Text="📚"
                            FontSize="60"
-                           HorizontalOptions="Center" />
+                           HorizontalOptions="Center"/>
+
                     <Label Text="Aucune carte"
-                           FontSize="18"
-                           TextColor="Gray"
-                           HorizontalOptions="Center" />
-                    <Label Text="Créez votre première carte ci-dessus"
-                           FontSize="14"
-                           TextColor="LightGray"
-                           HorizontalOptions="Center" />
-                </StackLayout>
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="#1E3A8A"
+                           HorizontalOptions="Center"/>
+
+                </VerticalStackLayout>
+
             </CollectionView.EmptyView>
+
         </CollectionView>
 
-        <!-- Info bar -->
-        <Label Grid.Row="2"
-               x:Name="InfoLabel"
-               Text="Prêt"
-               FontSize="12"
-               TextColor="Gray"
-               HorizontalOptions="Center"
-               Margin="0,10,0,0" />
     </Grid>
 
 </ContentPage>

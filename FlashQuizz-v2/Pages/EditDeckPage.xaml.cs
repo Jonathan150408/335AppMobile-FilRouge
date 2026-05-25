@@ -10,6 +10,8 @@ namespace FlashQuizz_v2.Pages
         private int _cardCount;
         private DeckService _dataService;
         private ObservableCollection<Deck> _decks;
+        //handle the deck creation
+        private bool isNew = false;
         public EditDeckPage()
         {
             InitializeComponent();
@@ -36,6 +38,13 @@ namespace FlashQuizz_v2.Pages
             if (query.TryGetValue("decks", out object? decksObj) && decksObj is ObservableCollection<Deck> decks)
             {
                 _decks = decks;
+            }
+
+            //if the deck is not in the list we add it
+            if (!_decks.ToList().Any(d => d.Id == _deck.Id))
+            {
+                isNew = true;
+                _decks.Add(_deck);
             }
         }
 
@@ -64,6 +73,11 @@ namespace FlashQuizz_v2.Pages
             }
         }
 
+        /// <summary>
+        /// Save the deck
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void OnSaveClicked(object sender, EventArgs e)
         {
             string? newName = NameEntry.Text?.Trim();
@@ -86,6 +100,12 @@ namespace FlashQuizz_v2.Pages
 
         private async void OnCancelClicked(object sender, EventArgs e)
         {
+            //remove the new deck
+            if (isNew)
+            {
+                _decks.RemoveAt(_decks.ToList().FindIndex(d => d.Id == _deck.Id));
+            }
+
             await Shell.Current.GoToAsync("..");
         }
     }

@@ -53,7 +53,7 @@ namespace FlashQuizz_v2.Pages
             Deck deck = new Deck
             {
                 Id = _nextId,
-                Name = ("newDeck" + _nextId).ToString(),
+                Name = "",
                 CardCount = 0
             };
 
@@ -94,12 +94,9 @@ namespace FlashQuizz_v2.Pages
         {
             base.OnAppearing();
 
-            //sort the decks
-            //sortDecks();
-
-            // Nécessaire pour refléter les modifications de propriétés (ex: deck.Name changé dans EditDeckPage)
-            // ObservableCollection détecte les ajouts/suppressions, mais PAS les changements de propriétés
-            //RefreshView();
+            //manuallay refresh (usefull for the edit action)
+            DecksCollectionView.ItemsSource = null;
+            DecksCollectionView.ItemsSource = _decks;
         }
         /// <summary>
         /// Permet de Delete un deck (on sait lequel en se basant sur quel bouton à été cliqué)
@@ -124,12 +121,6 @@ namespace FlashQuizz_v2.Pages
 
             _decks.Remove(deck);  // La vue se met à jour automatiquement !
             await _dataService.SaveDecksAsync(_decks.ToList());
-        }
-
-        //sort the decks
-        private void sortDecks()
-        {
-            _decks.OrderBy(d => d.Name);
         }
 
         // Search filter

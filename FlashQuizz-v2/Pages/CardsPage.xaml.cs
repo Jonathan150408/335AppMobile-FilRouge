@@ -35,7 +35,12 @@ namespace FlashQuizz_v2.Pages
                 }
                 //link the view
                 CardsCollectionView.ItemsSource = _cards;
+
+                //set the page's title
+                Title = _deck.Name;
             }
+
+
         }
 
         /// <summary>
@@ -45,33 +50,22 @@ namespace FlashQuizz_v2.Pages
         /// <param name="e"></param>
         private async void OnAddCardClicked(object sender, EventArgs e)
         {
-            string? question = NewCardQuestionEntry.Text?.Trim();
-            string? answer = NewCardAnswerEntry.Text?.Trim();
-
-            if (string.IsNullOrEmpty(question))
+            _nextId++;
+            Card card = new Card
             {
-                await DisplayAlert("Erreur", "Veuillez entrer une question", "OK");
-                return;
-            }
-            else if (string.IsNullOrEmpty(answer))
-            {
-                await DisplayAlert("Erreur", "Veuillez entrer une réponse", "OK");
-                return;
-            }
-
-            Card newCard = new Card
-            {
-                Id = _nextId++,
-                Question = question,
-                Answer = answer
+                Id = _nextId,
+                Question = "",
+                Answer = ""
             };
 
-            _deck.Cards.Add(newCard);
-            _cards = _deck.Cards;
-            await _dataService.SaveDeckAsync(_deck);
-
-            NewCardQuestionEntry.Text = string.Empty;
-            NewCardAnswerEntry.Text = string.Empty;
+            // Pass Card, dataService and Cards list so EditCardPage can save
+            Dictionary<string, object> navigationParameter = new Dictionary<string, object>
+            {
+                { "card", card },
+                { "dataService", _dataService },
+                { "deck", _deck }
+            };
+            await Shell.Current.GoToAsync("EditCard", navigationParameter);
         }
         /// <summary>
         /// Permet de mettre un Card à jour (uniquement le nom puisque seul le nom est éditable)
