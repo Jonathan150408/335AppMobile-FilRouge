@@ -125,41 +125,11 @@ namespace FlashQuizz_v2.Pages
             await _dataService.SaveDeckAsync(_deck);
         }
 
-        // Search filter
-        private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
-        {
-            string searchText = e.NewTextValue?.ToLower() ?? "";
-
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                CardsCollectionView.ItemsSource = _cards;
-            }
-            else
-            {
-                List<Card> filtered = _cards.Where(d =>
-                    d.Question.ToLower().Contains(searchText)
-                ).ToList();
-                CardsCollectionView.ItemsSource = filtered;
-            }
-        }
-
-        //show a card
-        private async void OnCardClicked(object sender, EventArgs e)
-        {
-            //naviguer pour show la carte sur une nouvelle page
-            Button? button = sender as Button;
-            Card? card = button?.CommandParameter as Card;
-
-            if (card == null) return;
-            Dictionary<string, object> navigationParameter = new Dictionary<string, object>
-            {
-                { "card", card },
-                { "dataService", _dataService },
-                { "cards", _cards }
-            };
-            await Shell.Current.GoToAsync("ShowCard", navigationParameter);
-        }
-
+        /// <summary>
+        /// Starts the training session
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void OnStartTrainingClicked(object sender, EventArgs e)
         {
             //naviguer pour commencer l'entrainement
@@ -168,6 +138,18 @@ namespace FlashQuizz_v2.Pages
                 { "deck", _deck }
             };
             await Shell.Current.GoToAsync("TrainingPage", navigationParameter);
+        }
+
+        private async void OnEditParentDeck(object sender, EventArgs e)
+        {
+            ObservableCollection<Deck> _decks = new ObservableCollection<Deck>(await _dataService.LoadDecksAsync());
+            Dictionary<string, object> navigationParameters = new Dictionary<string, object>
+            {
+                { "deck", _deck },
+                { "dataService", _dataService },
+                { "decks", _decks }
+            };
+            await Shell.Current.GoToAsync("EditDeck", navigationParameters);
         }
     }
 }

@@ -21,11 +21,24 @@
         <VerticalStackLayout Grid.Row="0"
                              Spacing="10">
 
-            <!-- Number of cards-->
-            <Label Text="{Binding Cards.Count, StringFormat='{}{0} cartes'}"
-                   FontSize="12"
-                   FontAttributes="Bold"
-                   TextColor="#2563EB" />
+            <Grid ColumnDefinitions="auto,*,auto">
+                <!-- Number of cards-->
+                <Label Text="{Binding _Cards.Count, StringFormat='{}{0} cartes'}"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="#2563EB"
+                       Grid.Column="0"/>
+                <!-- Edit parent deck button -->
+                <Button Text="✏ Modifier"
+                        Clicked="OnEditParentDeck"
+                        BackgroundColor="#2563EB"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="12"
+                        HeightRequest="45"
+                        Grid.Column="2"
+                        CommandParameter="{ Binding Deck }"/>
+            </Grid>
 
             <!-- Training button -->
             <Button Text="▷ Commencer l'entraînement"
