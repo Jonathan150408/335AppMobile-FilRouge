@@ -13,11 +13,11 @@ TitleColor="White">
                 FlyoutDisplayOptions="AsMultipleItems"
                 x:Name="BurgerMenu">
         <ShellContent ContentTemplate="{DataTemplate views:DecksPage}"
-                        Title="Decks"/>
+                        Title="📚 Decks"/>
         <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" 
-                        Title="Profil"/>
+                        Title="👤 Profil"/>
         <ShellContent ContentTemplate="{DataTemplate views:InfosPage}"
-                        Title="Infos"/>
+                        Title="❕Infos"/>
     </FlyoutItem>
 
 </Shell>
