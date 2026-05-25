@@ -7,8 +7,8 @@ namespace FlashQuizz_v2.Pages
     public partial class EditCardPage : ContentPage, IQueryAttributable
     {
         private Card _card;
-        private CardService _dataService;
-        private ObservableCollection<Card> _cards;
+        private Deck _deck;
+        private DeckService _dataService;
         public EditCardPage()
         {
             InitializeComponent();
@@ -26,15 +26,15 @@ namespace FlashQuizz_v2.Pages
                 AnswerEntry.Text = card.Answer;
             }
 
-            if (query.TryGetValue("dataService", out object? serviceObj) && serviceObj is CardService service)
+            if (query.TryGetValue("dataService", out object? serviceObj) && serviceObj is DeckService service)
             {
                 _dataService = service;
             }
 
 
-            if (query.TryGetValue("cards", out object? cardsObj) && cardsObj is ObservableCollection<Card> cards)
+            if (query.TryGetValue("deck", out object? deckObj) && deckObj is Deck deck)
             {
-                _cards = cards;
+                _deck = deck;
             }
         }
 
@@ -59,7 +59,7 @@ namespace FlashQuizz_v2.Pages
             _card.Answer = newAnswer;
 
             // Save to JSON
-            await _dataService.SaveCardsAsync(_cards.ToList());
+            await _dataService.SaveDeckAsync(_deck);
 
             await Shell.Current.GoToAsync("..");
         }
