@@ -56,4 +56,9 @@ public partial class StatsPage : ContentPage, IQueryAttributable
         };
         await Shell.Current.GoToAsync("TrainingPage", navigationParameter);
     }
+
+    private async void LeaveTraining(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("Home");
+    }
 }

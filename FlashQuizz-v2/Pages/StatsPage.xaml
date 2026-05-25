@@ -208,7 +208,8 @@
                         BorderColor="#D1D5DB"
                         BorderWidth="1"
                         FontAttributes="Bold"
-                        CornerRadius="12"/>
+                        CornerRadius="12"
+                        Clicked="LeaveTraining"/>
 
             </VerticalStackLayout>
         </ScrollView>
