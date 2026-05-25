@@ -42,4 +42,18 @@ public partial class StatsPage : ContentPage, IQueryAttributable
         }
 
     }
+
+    /// <summary>
+    ///restart the training with the same deck
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private async void Restart(object sender, EventArgs e)
+    {
+        Dictionary<string, object> navigationParameter = new Dictionary<string, object>
+        {
+            { "deck", _deck }
+        };
+        await Shell.Current.GoToAsync("TrainingPage", navigationParameter);
+    }
 }

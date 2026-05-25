@@ -198,7 +198,8 @@
                         BackgroundColor="#2563EB"
                         TextColor="White"
                         FontAttributes="Bold"
-                        CornerRadius="12"/>
+                        CornerRadius="12"
+                        Clicked="Restart"/>
 
                 <Button Text="Retour"
                         HeightRequest="55"

@@ -47,6 +47,9 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     {
         if (query.TryGetValue("deck", out object? deckObj)  && deckObj is Deck deck)
         {
+            //deck is used to navigate
+            _deck = deck;
+            //others variables used in this page
             cardsLeft = Shuffle(deck.Cards.ToList());
             cardsCount = deck.Cards.Count;
             currentPosition = new Random().Next(0, cardsCount);
@@ -113,6 +116,11 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
 
     }
 
+    /// <summary>
+    /// Increments the counter and update the lists + UI
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void AddCorrectAnswer(object sender, EventArgs e)
     {
         correctCounter++;
@@ -125,11 +133,21 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
 
         //check if first try
     }
+
+    /// <summary>
+    /// Increments the counter and update UI
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void AddWrongAnswer(object sender, EventArgs e)
     {
         wrongCounter++;
         UpdateUI();
     }
+
+    /// <summary>
+    /// Updates the shown infos and if no cards are left, navigates to the stats page
+    /// </summary>
     private async void UpdateUI()
     {
         //update the average
