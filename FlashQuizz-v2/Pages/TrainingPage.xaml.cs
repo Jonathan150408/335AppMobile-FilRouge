@@ -1,6 +1,7 @@
 using FlashQuizz_v2.Models;
 using FlashQuizz_v2.Services;
 using System.Collections.ObjectModel;
+using System.Collections;
 using System.Diagnostics;
 
 namespace FlashQuizz_v2.Pages;
@@ -19,6 +20,12 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     /// These are the cards validated
     /// </summary>
     private List<Card> cardsDone = new List<Card>();
+
+    /// <summary>
+    /// Dictionnary of cards + tuples | Card + (numberOfTry + isCorrect)
+    /// </summary>
+    //private Dictionary<Card, (int, bool)> _cards;
+    private List<(Card, int, bool)> _cards;
 
     private bool showQuestion = true;
     private int currentPosition = 0;
@@ -54,7 +61,27 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
             cardsCount = deck.Cards.Count;
             currentPosition = new Random().Next(0, cardsCount);
             rotateButton.Text = cardsLeft[currentPosition].Question;
+
+            //the list of card
+            _cards = new Dictionary<Card, (int, bool)>();
+            foreach (Card c in _deck.Cards)
+            {
+                _cards.Add(c, (0, false));
+            }
         }
+    }
+
+    private int PickRandomAllowedCard()
+    {
+        int index = new Random().Next(0, _cards.Count);
+
+        //loop inside the list until a non-validated card is found
+        while (_cards[index].Item2)
+        {
+            index = (index + 1) % _cards.Count;
+        }
+
+        return index;
     }
 
 
@@ -105,12 +132,12 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
         showQuestion = !showQuestion;
         if (showQuestion)
         {
-            rotateButton.Text = cardsLeft[currentPosition].Question;
+            rotateButton.Text = _cards[currentPosition].Item1.Question;
             EvalButtons.IsVisible = false;
         }
         else
         {
-            rotateButton.Text = cardsLeft[currentPosition].Answer;
+            rotateButton.Text = _cards[currentPosition].Item1.Answer;
             EvalButtons.IsVisible = true;
         }
 
@@ -124,14 +151,9 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     private void AddCorrectAnswer(object sender, EventArgs e)
     {
         correctCounter++;
-
-        //move the card
-        cardsDone.Add(cardsLeft[currentPosition]);
-        cardsLeft[currentPosition] = null;
-
+        //_cards[currentPosition].Item2;
+        _cards[currentPosition].Item3 = true;
         UpdateUI();
-
-        //check if first try
     }
 
     /// <summary>

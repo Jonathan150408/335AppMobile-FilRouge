@@ -8,9 +8,9 @@ public partial class StatsPage : ContentPage, IQueryAttributable
 {
     private Deck _deck;
     //stats
-    private int timeElapsed;
-    private int firstTryCounter;
-    private int average;
+    private int _timeElapsed;
+    private int _firstTryCounter;
+    private int _average;
 
 
     public StatsPage()
@@ -26,21 +26,28 @@ public partial class StatsPage : ContentPage, IQueryAttributable
         if (query.TryGetValue("deck", out object? deckObj) && deckObj is Deck deck)
         {
             _deck = deck;
-            finishMessage.Text = "Vous avez terminé de réviser " + _deck.Name;
         }
         if (query.TryGetValue("timeElapsed", out object? timeObj) && timeObj is int time)
         {
-            timeElapsed = time;
+            _timeElapsed = time;
         }
         if (query.TryGetValue("firstTryCounter", out object? firstTryObj) && firstTryObj is int firstTry)
         {
-            firstTryCounter = firstTry;
+            _firstTryCounter = firstTry;
         }
         if (query.TryGetValue("average", out object? averageObj) && averageObj is int avg)
         {
-            average = avg;
+            _average = avg;
         }
 
+        //set up the display
+        finishMessage.Text = "Vous avez terminé de réviser " + _deck.Name;
+        timeElapsed.Text = (_timeElapsed / 60).ToString() + " m " + (_timeElapsed % 60).ToString() + " s";
+        knownPercentage.Text = (_firstTryCounter / _deck.Cards.Count * 100).ToString() + " %";
+        knownCards.Text = _firstTryCounter.ToString() + " / " + _deck.Cards.Count.ToString();
+        //numberOfReview
+        //cardQuestion
+        //cardResponse
     }
 
     /// <summary>

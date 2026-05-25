@@ -5,14 +5,13 @@
              Title="StatsPage">
     <Grid RowDefinitions="70,*">
 
-        <!-- CONTENT -->
         <ScrollView Grid.Row="1">
 
             <VerticalStackLayout
                 Padding="20,10,20,30"
                 Spacing="18">
 
-                <!-- ICON -->
+                <!-- icon -->
                 <Frame WidthRequest="90"
                        HeightRequest="90"
                        CornerRadius="45"
@@ -28,7 +27,7 @@
                            TextColor="White"/>
                 </Frame>
 
-                <!-- TITLE -->
+                <!-- title -->
                 <VerticalStackLayout Spacing="2">
 
                     <Label Text="Terminé !"
@@ -44,8 +43,8 @@
                            x:Name="finishMessage"/>
                 </VerticalStackLayout>
 
-                <!-- TOTAL TIME -->
-                <Frame Style="{StaticResource CardStyle}">
+                <!-- time -->
+                <Frame>
                     <Grid ColumnDefinitions="40,*">
 
                         <Frame WidthRequest="32"
@@ -68,16 +67,17 @@
                                    FontSize="13"
                                    TextColor="#6B7280"/>
 
-                            <Label Text="8m 32s"
+                            <Label Text="En chargement..."
                                    FontSize="28"
                                    FontAttributes="Bold"
-                                   TextColor="#1E3A8A"/>
+                                   TextColor="#1E3A8A"
+                                   x:Name="timeElapsed"/>
                         </VerticalStackLayout>
                     </Grid>
                 </Frame>
 
-                <!-- MEMORIZATION -->
-                <Frame Style="{StaticResource CardStyle}">
+                <!-- known % -->
+                <Frame>
                     <VerticalStackLayout Spacing="10">
 
                         <Grid ColumnDefinitions="40,*">
@@ -102,23 +102,25 @@
                                        FontSize="13"
                                        TextColor="#6B7280"/>
 
-                                <Label Text="75%"
+                                <Label Text="En chargement..."
                                        FontSize="24"
                                        FontAttributes="Bold"
-                                       TextColor="#1E3A8A"/>
+                                       TextColor="#1E3A8A"
+                                       x:Name="knownPercentage"/>
                             </VerticalStackLayout>
                         </Grid>
 
                         <!-- Progress Bar -->
-                        <ProgressBar Progress="0.75"
+                        <ProgressBar Progress="0"
                                      HeightRequest="10"
                                      BackgroundColor="#DCE7F5"
-                                     ProgressColor="#22C55E"/>
+                                     ProgressColor="#22C55E"
+                                     x:Name="knownPercentageBar"/>
                     </VerticalStackLayout>
                 </Frame>
 
-                <!-- KNOWN CARDS -->
-                <Frame Style="{StaticResource CardStyle}">
+                <!-- Known cards  -->
+                <Frame>
                     <Grid ColumnDefinitions="40,*">
 
                         <Frame WidthRequest="32"
@@ -141,18 +143,20 @@
                                    FontSize="13"
                                    TextColor="#6B7280"/>
 
-                            <Label Text="18 / 32"
+                            <Label Text="En chargement..."
                                    FontSize="28"
                                    FontAttributes="Bold"
-                                   TextColor="#1E3A8A"/>
+                                   TextColor="#1E3A8A"
+                                   x:Name="knownCards"/>
                         </VerticalStackLayout>
                     </Grid>
                 </Frame>
 
-                <!-- MOST FAILED -->
-                <Frame Style="{StaticResource CardStyle}">
+                <!-- most failed card -->
+                <Frame>
                     <VerticalStackLayout Spacing="10">
 
+                        <!-- infos -->
                         <HorizontalStackLayout Spacing="10">
 
                             <Frame BackgroundColor="#FEE2E2"
@@ -165,12 +169,14 @@
                                        TextColor="#DC2626"/>
                             </Frame>
 
-                            <Label Text="Revue 3 fois"
+                            <Label Text="En chargement..."
                                    FontSize="12"
                                    VerticalOptions="Center"
-                                   TextColor="#2563EB"/>
+                                   TextColor="#2563EB"
+                                   x:Name="numberOfReview"/>
                         </HorizontalStackLayout>
 
+                        <!-- card -->
                         <Frame BackgroundColor="#EFF6FF"
                                CornerRadius="12"
                                HasShadow="False"
@@ -183,16 +189,28 @@
                                        FontSize="12"
                                        TextColor="#6B7280"/>
 
-                                <Label Text="Combien vaut sin(90)"
+                                <Label Text="En chargement..."
                                        FontSize="16"
                                        FontAttributes="Bold"
-                                       TextColor="#1E3A8A"/>
+                                       TextColor="#1E3A8A"
+                                       x:Name="cardQuestion"/>
+
+                                <Label Text="Réponse"
+                                       FontSize="12"
+                                       TextColor="#6B7280"/>
+
+                                <Label Text="En chargement..."
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#1E3A8A"
+                                       x:Name="cardResponse"/>
                             </VerticalStackLayout>
                         </Frame>
                     </VerticalStackLayout>
                 </Frame>
 
-                <!-- BUTTONS -->
+                <!-- buttons -->
+                <!-- restart -->
                 <Button Text="Recommencer"
                         HeightRequest="55"
                         BackgroundColor="#2563EB"
@@ -201,6 +219,7 @@
                         CornerRadius="12"
                         Clicked="Restart"/>
 
+                <!-- leave -->
                 <Button Text="Retour"
                         HeightRequest="55"
                         BackgroundColor="White"
