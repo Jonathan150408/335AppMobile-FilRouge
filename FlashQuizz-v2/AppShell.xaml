@@ -15,8 +15,6 @@ TitleColor="White">
                 x:Name="BurgerMenu">
         <ShellContent ContentTemplate="{DataTemplate views:DecksPage}"
                         Title="📚 Decks"/>
-        <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" 
-                        Title="👤 Profil"/>
         <ShellContent ContentTemplate="{DataTemplate views:InfosPage}"
                         Title="❕Infos"/>
     </FlyoutItem>
