@@ -110,6 +110,32 @@ namespace FlashQuizz_v2.Services
         }
 
         /// <summary>
+        /// DELETE a deck based on it's id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task DeleteDeckByIdAsync(int id)
+        {
+            //GET all decks
+            List<Deck> decks = await LoadDecksAsync();
+
+            //separate the deck to delete
+            List<Deck> othersDecks = decks.FindAll(d => d.Id != id);
+
+            //save all decks
+            try
+            {
+                string json = JsonSerializer.Serialize(othersDecks);
+                await File.WriteAllTextAsync(_filePath, json);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error saving: {ex.Message}");
+            }
+        }
+
+
+        /// <summary>
         /// Permet de recevoir le chemin actuel
         /// </summary>
         /// <returns>Une string contenant le chemin de fichiers</returns>

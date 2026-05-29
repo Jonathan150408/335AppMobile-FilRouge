@@ -6,28 +6,46 @@ namespace FlashQuizz_v2.Pages
 {
     public partial class EditDeckPage : ContentPage, IQueryAttributable
     {
+        /// <summary>
+        /// The deck to edit (or a new deck if we create)
+        /// </summary>
         private Deck _deck;
-        private int _cardCount;
+
+        /// <summary>
+        /// The dataservice use to save and delete
+        /// </summary>
         private DeckService _dataService;
+
+        /// <summary>
+        /// All decks
+        /// </summary>
         private ObservableCollection<Deck> _decks;
-        //handle the deck creation
+
+        /// <summary>
+        /// A booleean used to handle the deck creation
+        /// </summary>
         private bool isNew = false;
+
+        /// <summary>
+        /// Defaukt contructor
+        /// </summary>
         public EditDeckPage()
         {
             InitializeComponent();
         }
 
-        // Receive navigation parameters
+        /// <summary>
+        /// Receive navigation parameters
+        /// </summary>
+        /// <param name="query"></param>
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
             if (query.TryGetValue("deck", out object? deckObj) && deckObj is Deck deck)
             {
                 _deck = deck;
-                _cardCount = deck.CardCount;
 
                 // Initialize fields
                 NameEntry.Text = deck.Name;
-                CardCountLabel.Text = _cardCount.ToString();
             }
 
             if (query.TryGetValue("dataService", out object? serviceObj) && serviceObj is DeckService service)
@@ -44,32 +62,8 @@ namespace FlashQuizz_v2.Pages
             if (!_decks.ToList().Any(d => d.Id == _deck.Id))
             {
                 isNew = true;
+                DeleteButton.IsVisible = false;
                 _decks.Add(_deck);
-            }
-        }
-
-        /// <summary>
-        /// /Temp/
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnIncrementClicked(object sender, EventArgs e)
-        {
-            _cardCount++;
-            CardCountLabel.Text = _cardCount.ToString();
-        }
-
-        /// <summary>
-        /// /Temp/
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnDecrementClicked(object sender, EventArgs e)
-        {
-            if (_cardCount > 0)
-            {
-                _cardCount--;
-                CardCountLabel.Text = _cardCount.ToString();
             }
         }
 
@@ -88,9 +82,8 @@ namespace FlashQuizz_v2.Pages
                 return;
             }
 
-            // Update deck (ObservableCollection détecte le changement si on remplace l'objet)
+            // Update deck
             _deck.Name = newName;
-            _deck.CardCount = _cardCount;
 
             // Save to JSON
             await _dataService.SaveDecksAsync(_decks.ToList());
@@ -98,6 +91,11 @@ namespace FlashQuizz_v2.Pages
             await Shell.Current.GoToAsync("..");
         }
 
+        /// <summary>
+        /// Cancels the operation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void OnCancelClicked(object sender, EventArgs e)
         {
             //remove the new deck
@@ -107,6 +105,17 @@ namespace FlashQuizz_v2.Pages
             }
 
             await Shell.Current.GoToAsync("..");
+        }
+
+        /// <summary>
+        /// Delete the deck
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void OnDeleteClicked(object sender, EventArgs e)
+        {
+            await _dataService.DeleteDeckByIdAsync(_deck.Id);
+            await Shell.Current.GoToAsync("Home");
         }
     }
 }
