@@ -58,7 +58,6 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
         _cardsStats = new List<CardStats>();
 
         //set up the UI
-        rotateButton.Text = _cardsStats[_currentPosition].Card.Question;
         EvalButtons.IsVisible = false;
     }
 
@@ -78,6 +77,9 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
             {
                 _cardsStats.Add(new CardStats(c));
             }
+
+            rotateButton.Text = _cardsStats[_currentPosition].Card.Question;
+
         }
     }
 
@@ -172,9 +174,9 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     private async void UpdateUI()
     {
         //update the average
-        double average = _correctAnswers / _totalAnswers * 100;
-        average = Math.Round(average, 0);
-        correctResponsesAverage.Text = $"{average} %";
+        double average = (double)_correctAnswers / (double)_totalAnswers * 100;
+        average = Math.Round(average);
+        correctResponsesAverage.Text = $"{average} % de bonnes réponses";
 
         //update the displayed card or go to stats if no cards left
         if (_cardsStats.FindAll(c => c.IsDone == false).Count == 0)
@@ -187,7 +189,7 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
             {
                 { "timeElapsed", startTime.ElapsedMilliseconds },
                 { "deck", _deck},
-                { "goodAnswersAverage", average },
+                { "average", (int)average },
                 { "cardsStats", _cardsStats }
             };
             await Shell.Current.GoToAsync("Stats", navigationParameter);
