@@ -107,15 +107,8 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     /// <param name="e"></param>
     public async void OnRotateClicked(object sender, EventArgs e)
     {
-        //rotate the card 1 time on 2 i each direction
-        if (showQuestion)
-        {
-            await rotateButton.RotateYTo(360, 180, Easing.Linear);
-        }
-        else
-        {
-            await rotateButton.RotateYTo(0, 180, Easing.Linear);
-        }
+        //half rotation
+        await rotateButton.RotateYTo(90, 150);
 
         //update text and buttons
         showQuestion = !showQuestion;
@@ -130,6 +123,11 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
             EvalButtons.IsVisible = true;
         }
 
+        //reset rotation (so the text isn't reversed)
+        rotateButton.RotationY = -90;
+
+        //other half rotation
+        await rotateButton.RotateYTo(0, 150);
     }
 
     /// <summary>
