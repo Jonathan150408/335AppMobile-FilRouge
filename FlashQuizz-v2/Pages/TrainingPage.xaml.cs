@@ -62,6 +62,44 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     }
 
     /// <summary>
+    /// Set up the sensor
+    /// </summary>
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        //subscibe
+        Accelerometer.Start(SensorSpeed.UI);
+        Accelerometer.ShakeDetected += Accelerometer_ShakeDetected;
+    }
+    /// <summary>
+    /// "Close" the sensor
+    /// </summary>
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+
+        //unsubscribe
+        Accelerometer.ShakeDetected -= Accelerometer_ShakeDetected;
+        Accelerometer.Stop();
+    }
+
+    /// <summary>
+    /// On shake, add a wrong answer
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    /// <exception cref="NotImplementedException"></exception>
+    private void Accelerometer_ShakeDetected(object? sender, EventArgs e)
+    {
+        //only works if the buttons are shown
+        if (!showQuestion)
+        {
+            AddWrongAnswer(sender, e);
+        }
+    }
+
+    /// <summary>
     /// Get the navigation parameters
     /// </summary>
     /// <param name="query"></param>

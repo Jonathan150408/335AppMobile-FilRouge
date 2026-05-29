@@ -57,7 +57,7 @@ public partial class StatsPage : ContentPage, IQueryAttributable
 
         //hardest card
         int hardestCardIndex = _cardStats.ToList().FindIndex(c => c.NumberOTrials == _cardStats.ToList().Max(c => c.NumberOTrials));
-        numberOfReview.Text =  "Revue  " + _cardStats[hardestCardIndex].NumberOTrials.ToString();
+        numberOfReview.Text =  "Revue  " + _cardStats[hardestCardIndex].NumberOTrials.ToString() + " fois";
         cardQuestion.Text = _cardStats[hardestCardIndex].Card.Question;
         cardResponse.Text = _cardStats[hardestCardIndex].Card.Answer;
     }
