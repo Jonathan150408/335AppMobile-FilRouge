@@ -12,31 +12,40 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     /// This is the deck to show and to use
     /// </summary>
     private Deck _deck;
-    /// <summary>
-    /// These are the cards the the user must do to finish
-    /// </summary>
-    private List<Card> cardsLeft;
-    /// <summary>
-    /// These are the cards validated
-    /// </summary>
-    private List<Card> cardsDone = new List<Card>();
 
     /// <summary>
-    /// Dictionnary of cards + tuples | Card + (numberOfTry + isCorrect)
+    /// The list of cards to train and it's stats
     /// </summary>
-    //private Dictionary<Card, (int, bool)> _cards;
-    private List<(Card, int, bool)> _cards;
+    private List<CardStats> _cardsStats;
 
+    /// <summary>
+    /// Determines wether we show the question (if the, only the question if shown)
+    /// </summary>
     private bool showQuestion = true;
-    private int currentPosition = 0;
-    private int cardsCount;
 
-    //counters for stats
-    private int firstTryCounter = 0;
-    private int correctCounter = 0;
-    private int wrongCounter = 0;
+    /// <summary>
+    /// Th index od _cardsStats we are testing
+    /// </summary>
+    private int _currentPosition = 0;
+
+    /// <summary>
+    /// The number of correct answers given
+    /// </summary>
+    private int _correctAnswers = 0;
+
+    /// <summary>
+    /// Total number of attempts
+    /// </summary>
+    private int _totalAnswers = 0;
+
+    /// <summary>
+    /// A simple chrono to mesure the time taken
+    /// </summary>
     private Stopwatch startTime;
 
+    /// <summary>
+    /// Constructor
+    /// </summary>
     public TrainingPage()
     {
         InitializeComponent();
@@ -44,6 +53,13 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
         //start the chrono
         startTime = new Stopwatch();
         startTime.Start();
+
+        //create a new instance
+        _cardsStats = new List<CardStats>();
+
+        //set up the UI
+        rotateButton.Text = _cardsStats[_currentPosition].Card.Question;
+        EvalButtons.IsVisible = false;
     }
 
     /// <summary>
@@ -56,74 +72,45 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
         {
             //deck is used to navigate
             _deck = deck;
-            //others variables used in this page
-            cardsLeft = Shuffle(deck.Cards.ToList());
-            cardsCount = deck.Cards.Count;
-            currentPosition = new Random().Next(0, cardsCount);
-            rotateButton.Text = cardsLeft[currentPosition].Question;
 
-            //the list of card
-            _cards = new Dictionary<Card, (int, bool)>();
+            //each card get added to the stats list
             foreach (Card c in _deck.Cards)
             {
-                _cards.Add(c, (0, false));
+                _cardsStats.Add(new CardStats(c));
             }
         }
     }
 
+    /// <summary>
+    /// Pick a random card in the list _cardStats that is not validated
+    /// </summary>
+    /// <returns>The index of the card</returns>
     private int PickRandomAllowedCard()
     {
-        int index = new Random().Next(0, _cards.Count);
+        int index = new Random().Next(0, _cardsStats.Count);
 
         //loop inside the list until a non-validated card is found
-        while (_cards[index].Item2)
+        while (_cardsStats[index].IsDone)
         {
-            index = (index + 1) % _cards.Count;
+            index = (index + 1) % _cardsStats.Count;
         }
 
         return index;
     }
 
-
     /// <summary>
-    /// a random value used to shuffle
+    /// Rotates the card when the card is hit, let the user see the answer
     /// </summary>
-    private static readonly Random rand = new Random();
-    /// <summary>
-    /// Shuffle the list of cards
-    /// Source - https://stackoverflow.com/a/1262619
-    /// Posted by grenade, modified by community. See post 'Timeline' for change history
-    /// Retrieved 2026-05-22, License - CC BY-SA 4.0
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="list"></param>
-    public static List<Card> Shuffle(List<Card> list)
-    {
-        int n = list.Count;
-        while (n > 1)
-        {
-            n--;
-            int k = rand.Next(n + 1);
-            Card value = list[k];
-            list[k] = list[n];
-            list[n] = value;
-        }
-        return list;
-    }
-
-
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     public async void OnRotateClicked(object sender, EventArgs e)
     {
-        //trouver le "sens" de la carte
-        double angle = rotateButton.RotationY;
-
-        //tourner la carte
-        //await rotateButton.RotateYTo(angle + 360, 100, Easing.Linear);
-        if (angle == 0)
+        //rotate the card 1 time on 2 i each direction
+        if (showQuestion)
         {
             await rotateButton.RotateYTo(360, 180, Easing.Linear);
         }
-        else if (angle == 360)
+        else
         {
             await rotateButton.RotateYTo(0, 180, Easing.Linear);
         }
@@ -132,12 +119,12 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
         showQuestion = !showQuestion;
         if (showQuestion)
         {
-            rotateButton.Text = _cards[currentPosition].Item1.Question;
+            rotateButton.Text = _cardsStats[_currentPosition].Card.Question;
             EvalButtons.IsVisible = false;
         }
         else
         {
-            rotateButton.Text = _cards[currentPosition].Item1.Answer;
+            rotateButton.Text = _cardsStats[_currentPosition].Card.Answer;
             EvalButtons.IsVisible = true;
         }
 
@@ -150,9 +137,15 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     /// <param name="e"></param>
     private void AddCorrectAnswer(object sender, EventArgs e)
     {
-        correctCounter++;
-        //_cards[currentPosition].Item2;
-        _cards[currentPosition].Item3 = true;
+        //update the card's stats
+        _cardsStats[_currentPosition].IsDone = true;
+        _cardsStats[_currentPosition].NumberOTrials++;
+
+        //update the global stats
+        _correctAnswers++;
+        _totalAnswers++;
+
+        //update the ui
         UpdateUI();
     }
 
@@ -163,7 +156,13 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     /// <param name="e"></param>
     private void AddWrongAnswer(object sender, EventArgs e)
     {
-        wrongCounter++;
+        //update the card's stats
+        _cardsStats[_currentPosition].NumberOTrials++;
+
+        //update the global stats
+        _totalAnswers++;
+
+        //update the ui
         UpdateUI();
     }
 
@@ -173,12 +172,12 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
     private async void UpdateUI()
     {
         //update the average
-        double average = correctCounter / (currentPosition + 1) * 100;
+        double average = _correctAnswers / _totalAnswers * 100;
         average = Math.Round(average, 0);
         correctResponsesAverage.Text = $"{average} %";
 
         //update the displayed card or go to stats if no cards left
-        if (cardsLeft.FindAll(c => c != null).Count == 0)
+        if (_cardsStats.FindAll(c => c.IsDone == false).Count == 0)
         {
             //training finished
             startTime.Stop();
@@ -188,19 +187,17 @@ public partial class TrainingPage : ContentPage, IQueryAttributable
             {
                 { "timeElapsed", startTime.ElapsedMilliseconds },
                 { "deck", _deck},
-                { "knownCards", firstTryCounter },
-                { "goodAnswersAverage", average }
+                { "goodAnswersAverage", average },
+                { "cardsStats", _cardsStats }
             };
             await Shell.Current.GoToAsync("Stats", navigationParameter);
         }
         else
         {
             //next card
-            do
-            {
-                currentPosition = new Random().Next(0, cardsCount);
-            } while (cardsLeft[currentPosition] == null);
-            rotateButton.Text = cardsLeft[currentPosition].Question;
+            _currentPosition = PickRandomAllowedCard();
+
+            rotateButton.Text = _cardsStats[_currentPosition].Card.Question;
             showQuestion = true;
             EvalButtons.IsVisible = false;
         }
